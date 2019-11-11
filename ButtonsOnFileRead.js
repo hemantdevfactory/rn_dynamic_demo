@@ -33,7 +33,7 @@ export default class ButtonScreen extends React.Component {
 
                 var key = "key" + i;
                 console.log(key);
-                ButtonElement = React.createElement(Button, { onPress: this.handleBackButtonClick, title: str, key: "button_" + i }, "str");
+                ButtonElement = React.createElement(Button, { title: str, key: "button_" + i }, "str");
                 textElement = React.createElement(Text, { key: "text_" + i }, "");
                 array.push(ButtonElement);
                 array.push(textElement);
