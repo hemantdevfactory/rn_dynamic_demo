@@ -9,17 +9,26 @@ import EvalCreateComponent from './EvalCreateComponent';
 import EvalImport from './EvalImport';
 import EvalAssignObjects from './EvalAssignObjects';
 import ButtonsOnFileRead from './ButtonsOnFileRead';
+import EvalOnRead from './EvalOnRead';
 
 export default class Application extends React.Component {
   constructor(props) {
     super(props);
     this._createButtonsOnFileRead = this._createButtonsOnFileRead.bind(this);
-    this._afterRead = this._afterRead.bind(this);
+    //this._afterRead = this._afterRead.bind(this);
+
+    // We use React state to update the views. Initializaing the state here. 
+    // these are different demos which can be navigated to by pressing the button.
+    // Back button navigation is not implemented. 
     this.state = {
       content: <View style={styles.container}>
         <Button title="Buttons" onPress={this._createButtons} />
         <Text></Text>
-        <Button title="Buttons On File Read" onPress={this._createButtonsOnFileRead} />
+        <Button title="Buttons On File Read" onPress={this._handleButtonsOnFileRead} />
+        <Text></Text>
+        <Button title="Assign Objects in eval" onPress={this._useEvalAssignObjects} />
+        <Text></Text>
+        <Button title="Eval Content from File" onPress={this._evalOnRead} />
         <Text></Text>
         <Button title="Danger HTML" onPress={this._useDangerHTML} />
         <Text></Text>
@@ -28,18 +37,16 @@ export default class Application extends React.Component {
         <Button title="eval createComponent" onPress={this._useEvalCreateComponents} />
         <Text></Text>
         <Button title="eval import" onPress={this._useEvalImport} />
-        <Text></Text>
-        <Button title="Assign Objects in eval" onPress={this._useEvalAssignObjects} />
 
       </View>,
       loading: true
     };
   }
 
-  _afterRead = (num) => {
+  _createButtonsOnFileRead = (num) => {
     this.setState({ content: <ButtonsOnFileRead number={num} /> });
   }
-  _createButtonsOnFileRead = () => {
+  _handleButtonsOnFileRead = () => {
     fname = 'number.txt'
     async function fetchImport(url) {
       const res = await fetch(url);
@@ -52,7 +59,44 @@ export default class Application extends React.Component {
     fetchImport(url).
       then((text) => {
         console.log("Object list", text);
-        this._afterRead(text);
+        this._createButtonsOnFileRead(text);
+      });
+
+
+
+
+    var array = [];
+    var loaderComponent = <Text key="tx1"> Loading content...</Text>;
+    array.push(loaderComponent);
+    var loaderView = React.createElement(View, { style: styles.container }, array);;
+
+
+    this.setState({ content: loaderView });
+    //this.setState({ content: <StringToJSX/> });
+    // Show loader until file read
+
+
+
+
+  };
+
+  _callEvalOnRead = (text) => {
+    this.setState({ content: <EvalOnRead code={text} /> });
+  }
+  _evalOnRead = () => {
+    fname = 'evalcode.js'
+    async function fetchImport(url) {
+      const res = await fetch(url);
+      const source = await res.text();
+      console.log("File content" + source);
+      
+      return source;
+    }
+    url = "https://hshinde-bucket-src.s3.amazonaws.com/" + fname;
+    fetchImport(url).
+      then((text) => {
+        console.log("Object list", text);
+        this._callEvalOnRead(text);
       });
 
 
