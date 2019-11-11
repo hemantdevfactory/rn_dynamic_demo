@@ -11,21 +11,20 @@ export default class EvalAssignObjects extends React.Component {
 
     render() {
         /* 
-        Begin Demo 1 : Code to generate JSX dynamically from text. 
-        Following code generates elements
+        Begin Demo: Code to generate JSX dynamically from text. 
+        Following code generates elements outside and adds objects to an array inside eval.
         */
-        /**/
+       
         array = [];
         TextElement = React.createElement(Text, {key: "tx1"}, "Text Object 1 pushed from eval");
-        TextElement2 = React.createElement(Text, {key: "tx2"}, "Text Object 1 pushed from eval");
-        //array.push(TextElement2);        
+        TextElement2 = React.createElement(Text, {key: "tx2"}, "Text Object 2 pushed from eval");
+                
         eval("array.push(TextElement);array.push(TextElement2);");
         
         ViewElement = React.createElement(View, { style: styles.container }, array );
-        //eval(ViewElement = React.createElement(View, { style: styles.container }, array ))
+        
         return (ViewElement);
-        /* End Demo 4 */
-
+        
     }
 
 }

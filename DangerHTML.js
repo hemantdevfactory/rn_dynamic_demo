@@ -2,7 +2,9 @@ import React from 'react';
 import { StyleSheet, Text, View, Button, FlatList, Menu, TouchableOpacity } from 'react-native';
 
 
-// dangerouslySetInnerHTML is a React Method for generating views from Strings, doesn't work in React Native
+// dangerouslySetInnerHTML is a React Method for
+// generating views from Strings, doesn't work in 
+// React Native
 
 export default class DangerHTML extends React.Component {
 

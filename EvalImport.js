@@ -8,7 +8,10 @@ import jsx from "acorn-jsx";
 
 
 export default class EvalImport extends React.Component {
-
+    /* 
+        Following code shows that React.createElement doesn't work inside eval.
+        And we can't import React inside eval to resolve errors appearing due to createElement
+    */
     render() {
         array = [];
         eval('import React from "react";TextElement = React.createElement(Text, {key: "tx1"}, "Welcome to react world");array.push(TextElement); ');

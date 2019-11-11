@@ -1,15 +1,8 @@
 import React from 'react';
 import { BackHandler, StyleSheet, Text, View, Button, FlatList, Menu, TouchableOpacity } from 'react-native';
 
-/*export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-    </View>
-  );
-}
-*/
 
+// code to create a fixed set of buttons
 
 export default class ButtonScreen extends React.Component {
   constructor(props) {
@@ -40,26 +33,10 @@ export default class ButtonScreen extends React.Component {
     }
     ViewElement = React.createElement(View, { style: styles.container }, array );
     return (ViewElement);
-     /* <View style={styles.container}>
-        <Button title="Button 1" onPress={this.handleBackButtonClick} />
-        <Text></Text>
-        <Button title="Button 2" onPress={this.handleBackButtonClick} />
-
-      </View>
-      */
-     
   }
-
 }
 
-/*const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});*/
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

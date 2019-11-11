@@ -11,10 +11,8 @@ export default class EvalCreateComponent extends React.Component {
 
     render() {
         /* 
-        Begin Demo 1 : Code to generate JSX dynamically from text. 
-        Following code generates elements
+        Following code shows that React.createElement doesn't work inside eval.
         */
-        /**/
         array = [];
         eval('TextElement = React.createElement(Text, {key: "tx1"}, "Welcome to react world");array.push(TextElement); ');
         
