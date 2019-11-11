@@ -51,14 +51,14 @@ export default class Application extends React.Component {
     async function fetchImport(url) {
       const res = await fetch(url);
       const source = await res.text();
-      console.log("File content" + source);
+      //console.log("File content " + source);
       
       return source;
     }
     url = "https://hshinde-bucket-src.s3.amazonaws.com/" + fname;
     fetchImport(url).
       then((text) => {
-        console.log("Object list", text);
+        console.log("File content ", text);
         this._createButtonsOnFileRead(text);
       });
 
@@ -88,14 +88,14 @@ export default class Application extends React.Component {
     async function fetchImport(url) {
       const res = await fetch(url);
       const source = await res.text();
-      console.log("File content" + source);
+      //console.log("File content " + source);
       
       return source;
     }
     url = "https://hshinde-bucket-src.s3.amazonaws.com/" + fname;
     fetchImport(url).
       then((text) => {
-        console.log("Object list", text);
+        console.log("File Content ", text);
         this._callEvalOnRead(text);
       });
 

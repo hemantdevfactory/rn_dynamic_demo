@@ -22,10 +22,10 @@ export default class ButtonScreen extends React.Component {
     for(i=0; i<3; i++) {
       var str = "Button " + i;
       
-      console.log(str);
+      //console.log(str);
 
       var key = "key" + i;
-      console.log(key);
+      //console.log(key);
       ButtonElement = React.createElement(Button, {title: str, key: "button_" + i }, "str");
       textElement = React.createElement(Text, {key: "text_" + i}, "");  
       array.push(ButtonElement);
