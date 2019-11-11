@@ -7,7 +7,7 @@ import jsx from "acorn-jsx";
 
 
 
-export default class EvalComponent extends React.Component {
+export default class EvalElement extends React.Component {
 
     render() {
         /* 

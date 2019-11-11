@@ -4,8 +4,8 @@ import * as FileSystem from 'expo-file-system';
 import ButtonScreen from './ButtonScreen';
 import StringToJSX from './StringToJSX';
 import DangerHTML from './DangerHTML';
-import EvalComponent from './EvalComponent';
-import EvalCreateComponent from './EvalCreateComponent';
+import EvalElement from './EvalElement';
+import EvalCreateElement from './EvalCreateElement';
 import EvalImport from './EvalImport';
 import EvalAssignObjects from './EvalAssignObjects';
 import ButtonsOnFileRead from './ButtonsOnFileRead';
@@ -32,9 +32,9 @@ export default class Application extends React.Component {
         <Text></Text>
         <Button title="Danger HTML" onPress={this._useDangerHTML} />
         <Text></Text>
-        <Button title="eval component" onPress={this._useEvalComponents} />
+        <Button title="eval element" onPress={this._useEvalElements} />
         <Text></Text>
-        <Button title="eval createComponent" onPress={this._useEvalCreateComponents} />
+        <Button title="eval create Element" onPress={this._useEvalCreateElements} />
         <Text></Text>
         <Button title="eval import" onPress={this._useEvalImport} />
 
@@ -127,13 +127,13 @@ export default class Application extends React.Component {
     //return (<DangerHTML />);
   };
 
-  _useEvalComponents = () => {
-    this.setState({ content: <EvalComponent /> });
+  _useEvalElements = () => {
+    this.setState({ content: <EvalElement /> });
     //return (<EvalComponent />);
   };
 
-  _useEvalCreateComponents = () => {
-    this.setState({ content: <EvalCreateComponent /> });
+  _useEvalCreateElements = () => {
+    this.setState({ content: <EvalCreateElement /> });
     //return (<EvalCreateComponent />);
   };
 
